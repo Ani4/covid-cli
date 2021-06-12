@@ -1,0 +1,16 @@
+{
+  "name": "covid-cli",
+  "version": "1.0.0",
+  "description": "This cli help you to track the covid slots for india",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node.js",
+    "cli",
+    "covid"
+  ],
+  "author": "Aniket Sharma",
+  "license": "ISC"
+}
