@@ -12,5 +12,16 @@
     "covid"
   ],
   "author": "Aniket Sharma",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "chalk": "^4.1.1",
+    "commander": "^7.2.0",
+    "inquirer": "^8.1.0",
+    "node-notifier": "^10.0.0",
+    "tty-table": "^4.1.3"
+  },
+  "bin":{
+    "cowin":"./bin/index.js"
+  }
 }
