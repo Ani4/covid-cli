@@ -1,4 +1,5 @@
-const axios = require("axios")
+const axios = require("axios");
+const chalk = require("chalk");
 const Table = require("tty-table")
 
 const config = require("../util/config")
@@ -21,6 +22,9 @@ states.getAllState = () => {
             color: "green",
             width: 40 ,
           }]
+          console.log(chalk.bold.red(" ------------------------------------------------"))
+            console.log(chalk.bold.magenta("          Avaliable States "))
+            console.log(chalk.bold.red(" ------------------------------------------------"))
           const out = Table(TableHeader,result.data.states,config.TableOptions).render()
           console.log(out);
         })

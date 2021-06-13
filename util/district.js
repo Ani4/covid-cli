@@ -1,4 +1,5 @@
-const axios = require("axios")
+const axios = require("axios");
+const chalk = require("chalk");
 const Table = require("tty-table")
 
 const config = require("../util/config")
@@ -22,6 +23,9 @@ districts.getByState = (state_id) => {
             align: "left",
             width: 40
           },]
+          console.log(chalk.bold.red(" ------------------------------------------------"))
+          console.log(chalk.bold.magenta("          Avaliable Districts of : ", state_id ))
+          console.log(chalk.bold.red(" ------------------------------------------------"))
           const out = Table(TableHeader,result.data.districts,config.TableOptions).render()
           console.log(out);
         })
