@@ -22,12 +22,23 @@ slot.start = () => {
               name: "pincode",
               message:"pincode",
           },
+          {
+            type: "list",
+            name: "date",
+            message:"select date",
+            choices: [
+              { name:  moment().format("DD-MM-YYYY"), value:  moment().add(0, "days").format("DD-MM-YYYY") },
+              { name:  moment().add(1,"days").format("DD-MM-YYYY"), value:  moment().add(1, "days").format("DD-MM-YYYY") },
+              { name:  moment().add(2,"days").format("DD-MM-YYYY"), value:  moment().add(2, "days").format("DD-MM-YYYY") },
+              { name:  moment().add(3,"days").format("DD-MM-YYYY"), value:  moment().add(3, "days").format("DD-MM-YYYY") },
+          ],
+        },
         ])
         .then((answers) => {
           console.log(chalk.bgYellowBright("WAITING"))
             switch (answers.choice) {
                 case 1:
-                   slot.getByPin(answers.pincode);
+                   slot.getByPin(answers.pincode,answers.date);
                     break;
                 default:
                     break;
@@ -124,7 +135,7 @@ slot.getByPin = (pin, date = moment().add(0, "days").format("DD-MM-YYYY")) => {
             const out = Table(TableHeader, sanatizedDatea(result.data.sessions), config.TableOptions).render();
             console.log(out);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.log(chalk.bgRed.white("No data is availble")));
 };
 
 module.exports = slot;
